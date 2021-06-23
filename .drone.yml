@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: docker
 name: default
@@ -6,14 +7,8 @@ workspace:
   path: /drone/src
 
 steps:
-- name: backend
-  image: golang:latest
-  commands:
-  - go get
-  - go test
-
-- name: frontend
-  image: node:latest
-  commands:
-  - npm install
-  - npm run tests
+  - name: lint
+    image: python:3.7-alpine
+    commands:
+      - python -m pip install -r requirements.txt
+      - flake8
