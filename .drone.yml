@@ -4,7 +4,7 @@ type: docker
 name: default
 
 workspace:
-  path: /myworkspace/myatnoe
+  path: /myworkspace/myatnoe/drone-test
 
 steps:
   - name: lint
